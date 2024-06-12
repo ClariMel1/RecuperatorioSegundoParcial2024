@@ -101,7 +101,10 @@ class EmpresaCable{
             $contrato->setCosto($costoActualizado);
 
         }else{
+            $costo = 0;
             $contrato = new ContratoPorEmpresa($fechaDesde, $fechaVenc,$objPlan,$costo,$seRenueva, $objCliente, $importeParcial);
+            $costoActualizado = $contrato->calcularImporte();
+            $contrato->setCosto($costoActualizado);
         }
 
         $this->contratos[] = $contrato;
